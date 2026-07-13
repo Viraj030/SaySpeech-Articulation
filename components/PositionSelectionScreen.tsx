@@ -50,14 +50,14 @@ export default function PositionSelectionScreen({ selectedSound, onSelectPositio
   return (
     <div className="flex-1 w-full h-full relative flex flex-col p-6 overflow-hidden">
       {/* Background artwork */}
-      <div 
+      <div
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/game-bg.jpg')" }} 
+        style={{ backgroundImage: "url('/images/game-bg.jpg')" }}
       />
       <div className="absolute inset-0 bg-white/60 z-0 backdrop-blur-[1px]" />
 
       <div className="relative z-10 max-w-3xl w-full mx-auto flex flex-col gap-6 lg:gap-10 py-4 h-full justify-center">
-        
+
         <div className="flex flex-col items-center gap-4 text-center">
           <div className="inline-flex items-center justify-center px-6 py-2 bg-orange-100 text-orange-700 font-black rounded-full uppercase tracking-widest text-sm border border-orange-200">
             {selectedSound} SOUND
@@ -80,7 +80,7 @@ export default function PositionSelectionScreen({ selectedSound, onSelectPositio
               transition={{ delay: i * 0.1, type: 'spring', stiffness: 200, damping: 20 }}
               whileHover={{ scale: 1.03, y: -4 }}
               whileTap={{ scale: 0.97 }}
-              className={`bg-white rounded-3xl p-6 flex items-start gap-5 text-left border-2 shadow-sm hover:shadow-lg transition-all group ${pos.border}`}
+              className={`bg-white rounded-3xl p-5 flex items-start gap-5 text-left border-2 shadow-sm hover:shadow-lg transition-all group ${pos.border}`}
             >
               <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 ${pos.bg} ${pos.color} group-hover:scale-110 transition-transform`}>
                 {pos.icon}
@@ -96,7 +96,7 @@ export default function PositionSelectionScreen({ selectedSound, onSelectPositio
             </motion.button>
           ))}
         </div>
-        
+
       </div>
     </div>
   );

@@ -41,11 +41,11 @@ export default function GameLayout({
 
   return (
     <div style={{ backgroundColor: 'var(--bg-outer)' }} className="h-[100dvh] w-screen flex items-center justify-center p-2 sm:p-4 md:p-8 overflow-hidden select-none font-sans antialiased">
-      <div className={`relative w-full ${isWide ? 'max-w-5xl' : 'max-w-4xl'} h-full flex items-center justify-center`}>
-        
+      <div className={`relative w-full ${isWide ? 'max-w-3xl' : 'max-w-3xl'} h-full flex items-center justify-center`}>
+
         {/* Main Game Container */}
-        <div 
-          className="w-full h-full rounded-[24px] sm:rounded-[32px] flex flex-col shadow-2xl relative overflow-hidden transition-all duration-300" 
+        <div
+          className="w-full h-full rounded-[24px] sm:rounded-[32px] flex flex-col shadow-2xl relative overflow-hidden transition-all duration-300"
           style={{ backgroundColor: 'var(--top-bar)', border: '8px solid var(--game-border)' }}
         >
           {/* Top Bar */}
