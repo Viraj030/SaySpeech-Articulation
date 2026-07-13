@@ -8,6 +8,14 @@ interface Props {
 }
 
 export default function Matka({ tapCount, onTap }: Props) {
+  // Preload images so they appear instantly
+  useEffect(() => {
+    ['/images/Matka-1.png', '/images/Matka-2.png', '/images/Matka-3.png'].forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   // Fire some subtle dust confetti on breaks
   useEffect(() => {
     if (tapCount === 2) {

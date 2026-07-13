@@ -50,7 +50,7 @@ export default function ArticulationCard({ word, sentence, image, targetSound, p
 
       {/* Articulation Image */}
       <motion.div 
-        className="w-48 h-48 md:w-64 md:h-64 rounded-3xl bg-white border-4 border-amber-200 shadow-2xl p-4 overflow-hidden flex items-center justify-center"
+        className="w-56 h-56 md:w-72 md:h-72 rounded-3xl bg-white border-4 border-amber-200 shadow-2xl p-4 overflow-hidden flex items-center justify-center"
       >
         <img 
           src={image} 
@@ -64,10 +64,10 @@ export default function ArticulationCard({ word, sentence, image, targetSound, p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className={`bg-white/95 backdrop-blur-sm rounded-3xl border-4 border-amber-200 shadow-xl px-8 py-4 ${position === 'sentence' ? 'max-w-2xl' : 'max-w-sm'} text-center`}
+        className={`bg-white/95 backdrop-blur-sm rounded-3xl border-4 border-amber-200 shadow-xl px-8 py-5 ${position === 'sentence' ? 'max-w-2xl' : 'max-w-md'} text-center`}
         style={position === 'sentence' ? { borderRadius: '2rem 2rem 2rem 0' } : {}} // Speech bubble style for sentence
       >
-        <div className={`font-black text-slate-800 ${position === 'sentence' ? 'text-3xl md:text-4xl' : 'text-5xl md:text-6xl uppercase tracking-wider'}`}>
+        <div className={`font-black text-slate-800 ${position === 'sentence' ? 'text-3xl md:text-5xl' : 'text-5xl md:text-6xl uppercase tracking-wider'}`}>
           {position === 'sentence' && sentence ? (
             renderHighlightedText(sentence, targetSound)
           ) : word ? (

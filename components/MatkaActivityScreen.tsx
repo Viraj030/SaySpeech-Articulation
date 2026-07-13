@@ -43,10 +43,11 @@ export default function MatkaActivityScreen({ item, onNext, onReadyForNext, isAn
       playBreak();
       setTapCount(2);
 
-      // Allow next button to be clicked after reveal
+      // Show broken matka for 400ms, then reveal object
       setTimeout(() => {
+        setTapCount(3); // State 3 shows the object
         onReadyForNext(true);
-      }, 1000);
+      }, 400);
     }
   };
 
@@ -69,19 +70,25 @@ export default function MatkaActivityScreen({ item, onNext, onReadyForNext, isAn
             transition={{ duration: 0.3 }}
             className="relative z-10 flex-1 flex flex-col items-center justify-center p-6 w-full max-w-4xl mx-auto"
           >
-            {/* If matka is not fully broken, show Matka */}
-            {tapCount < 2 && (
-              <div className="absolute inset-0 flex flex-col items-center justify-start pt-[-5px]">
-                <Matka tapCount={tapCount} onTap={handleTap} />
-              </div>
+            {/* Matka Container: Stays during tap 0, 1, 2, and fades out in tap 3 */}
+            {tapCount <= 3 && (
+              <motion.div 
+                className={`absolute inset-0 flex flex-col items-center justify-start ${tapCount === 3 ? 'pointer-events-none' : ''}`}
+                animate={{ opacity: tapCount === 3 ? 0 : 1 }}
+                transition={{ duration: 0.4 }}
+              >
+                <Matka tapCount={Math.min(tapCount, 2)} onTap={handleTap} />
+              </motion.div>
             )}
 
-            {/* When matka breaks, show pieces animating out (handled by Matka) and ArticulationCard */}
-            {tapCount === 2 && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <div className="absolute inset-0 pointer-events-none flex flex-col items-center justify-start pt-8">
-                  <Matka tapCount={tapCount} onTap={() => { }} />
-                </div>
+            {/* When matka breaks and delay finishes, show ArticulationCard with pop-out animation */}
+            {tapCount === 3 && (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.1, y: -250 }} 
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                className="absolute inset-0 flex flex-col items-center justify-center z-10"
+              >
                 <ArticulationCard
                   word={item.word}
                   sentence={item.sentence}
@@ -89,7 +96,7 @@ export default function MatkaActivityScreen({ item, onNext, onReadyForNext, isAn
                   targetSound={item.targetSound}
                   position={item.position}
                 />
-              </div>
+              </motion.div>
             )}
           </motion.div>
         )}
