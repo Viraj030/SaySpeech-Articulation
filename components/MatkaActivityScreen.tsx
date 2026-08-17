@@ -15,7 +15,7 @@ interface Props {
 export default function MatkaActivityScreen({ item, onNext, onReadyForNext, isAnimatingNext }: Props) {
   const [tapCount, setTapCount] = useState(0);
   const [isLocked, setIsLocked] = useState(false);
-  const { playCrack, playBreak } = useMatkaSounds();
+  const { playBreak } = useMatkaSounds();
 
   // Reset when item changes
   useEffect(() => {
@@ -28,17 +28,6 @@ export default function MatkaActivityScreen({ item, onNext, onReadyForNext, isAn
     if (isLocked) return;
 
     if (tapCount === 0) {
-      // First tap
-      setIsLocked(true);
-      playCrack();
-      setTapCount(1);
-
-      // Unlock after shake animation
-      setTimeout(() => {
-        setIsLocked(false);
-      }, 500);
-    } else if (tapCount === 1) {
-      // Second tap
       setIsLocked(true);
       playBreak();
       setTapCount(2);
@@ -68,11 +57,11 @@ export default function MatkaActivityScreen({ item, onNext, onReadyForNext, isAn
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="relative z-10 flex-1 flex flex-col items-center justify-center p-6 w-full max-w-4xl mx-auto"
+            className="relative z-10 flex-1 flex flex-col items-center justify-center p-6 w-full max-w-3xl mx-auto"
           >
             {/* Matka Container: Stays during tap 0, 1, 2, and fades out in tap 3 */}
             {tapCount <= 3 && (
-              <motion.div 
+              <motion.div
                 className={`absolute inset-0 flex flex-col items-center justify-start ${tapCount === 3 ? 'pointer-events-none' : ''}`}
                 animate={{ opacity: tapCount === 3 ? 0 : 1 }}
                 transition={{ duration: 0.4 }}
@@ -83,8 +72,8 @@ export default function MatkaActivityScreen({ item, onNext, onReadyForNext, isAn
 
             {/* When matka breaks and delay finishes, show ArticulationCard with pop-out animation */}
             {tapCount === 3 && (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.1, y: -250 }} 
+              <motion.div
+                initial={{ opacity: 0, scale: 0.1, y: -250 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                 className="absolute inset-0 flex flex-col items-center justify-center z-10"

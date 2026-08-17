@@ -64,10 +64,10 @@ export default function ArticulationCard({ word, sentence, image, targetSound, p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className={`bg-white/95 backdrop-blur-sm rounded-3xl border-4 border-amber-200 shadow-xl px-8 py-5 ${position === 'sentence' ? 'max-w-2xl' : 'max-w-md'} text-center`}
+        className={`bg-white/95 backdrop-blur-sm rounded-3xl border-4 border-amber-200 shadow-xl px-6 py-4 md:px-8 md:py-5 ${position === 'sentence' ? 'max-w-[90vw] md:max-w-2xl w-full' : 'max-w-[90vw] md:max-w-md'} text-center mx-auto`}
         style={position === 'sentence' ? { borderRadius: '2rem 2rem 2rem 0' } : {}} // Speech bubble style for sentence
       >
-        <div className={`font-black text-slate-800 ${position === 'sentence' ? 'text-3xl md:text-5xl' : 'text-5xl md:text-6xl uppercase tracking-wider'}`}>
+        <div className={`font-black text-slate-800 break-words whitespace-normal ${position === 'sentence' ? 'text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-snug md:leading-tight' : 'text-4xl sm:text-5xl md:text-6xl uppercase tracking-wider'}`}>
           {position === 'sentence' && sentence ? (
             renderHighlightedText(sentence, targetSound)
           ) : word ? (
