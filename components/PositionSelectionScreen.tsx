@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sun, Target, Moon, MessageCircle } from 'lucide-react';
+import { articulationData } from '@/data/articulationData';
 
 interface Props {
   selectedSound: string;
@@ -47,6 +48,12 @@ export default function PositionSelectionScreen({ selectedSound, onSelectPositio
     }
   ] as const;
 
+  // Filter out positions that don't have items in articulationData
+  const availablePositions = positions.filter(pos => {
+    const items = articulationData[selectedSound]?.[pos.id];
+    return items && items.length > 0;
+  });
+
   return (
     <div className="flex-1 w-full h-full relative flex flex-col p-6 overflow-hidden">
       {/* Background artwork */}
@@ -71,7 +78,7 @@ export default function PositionSelectionScreen({ selectedSound, onSelectPositio
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {positions.map((pos, i) => (
+          {availablePositions.map((pos, i) => (
             <motion.button
               key={pos.id}
               onClick={() => onSelectPosition(pos.id)}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import { Home, ChevronLeft, ChevronRight, RotateCcw, Volume2, VolumeX } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export interface GameLayoutProps {
@@ -18,6 +18,8 @@ export interface GameLayoutProps {
   hideHome?: boolean;
   isWide?: boolean;
   resetLabel?: string;
+  isMuted?: boolean;
+  onToggleMute?: () => void;
 }
 
 export default function GameLayout({
@@ -35,7 +37,9 @@ export default function GameLayout({
   hideFooter = false,
   hideHome = false,
   isWide = false,
-  resetLabel = 'Reset'
+  resetLabel = 'Reset',
+  isMuted = false,
+  onToggleMute
 }: GameLayoutProps) {
   const isFinalStep = totalSteps > 0 && currentStepIndex === totalSteps - 1;
 
@@ -81,9 +85,33 @@ export default function GameLayout({
                 </div>
               </div>
 
-              {/* Progress Tag (Top Right inside header) */}
+              {/* Sound Toggle Button (Top Right inside header) */}
+              {onToggleMute && (
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center">
+                  <button
+                    onClick={onToggleMute}
+                    className="flex items-center justify-center active:translate-y-[3px] active:shadow-[0_3px_0_rgba(0,0,0,0.15)] transition-all shrink-0"
+                    style={{
+                      backgroundColor: '#3f51b5',
+                      borderRadius: '20px',
+                      padding: '8px 12px',
+                      color: 'white',
+                      boxShadow: 'rgba(0, 0, 0, 0.15) 0px 6px 0px'
+                    }}
+                    aria-label="Toggle Sound"
+                  >
+                    {isMuted ? (
+                      <VolumeX className="w-5 h-5 stroke-[2.5]" />
+                    ) : (
+                      <Volume2 className="w-5 h-5 stroke-[2.5]" />
+                    )}
+                  </button>
+                </div>
+              )}
+
+              {/* Progress Tag (Top Right inside header, shifted left to make space for sound button if visible) */}
               {totalSteps > 0 && (
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 px-3 py-1 rounded-full text-white font-bold text-sm border-2 border-white/30 backdrop-blur-sm shadow-sm z-10 flex items-center justify-center pointer-events-none">
+                <div className={`absolute ${onToggleMute ? 'right-[76px]' : 'right-4'} top-1/2 -translate-y-1/2 bg-white/20 px-3 py-1 rounded-full text-white font-bold text-sm border-2 border-white/30 backdrop-blur-sm shadow-sm z-10 flex items-center justify-center pointer-events-none`}>
                   {currentStepIndex + 1} / {totalSteps}
                 </div>
               )}

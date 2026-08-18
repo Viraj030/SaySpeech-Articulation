@@ -1,6 +1,6 @@
-import { ArticulationDataMap } from '@/types/articulation';
 
-export const articulationData: ArticulationDataMap = {
+
+const articulationData = {
   "b": {
     "initial": [
       {
@@ -5690,4 +5690,6 @@ export const articulationData: ArticulationDataMap = {
   }
 };
 
-export const availableSounds = ["p","b","m","ch","d","f","g","h","j","k","l","n","r","s","sh","t","th","v","y","z"];
+const availableSounds = ["b","ch","d","f","g","h","j","k","l","m","n","p","r","s","sh","t","th","v","y","z"];
+
+module.exports = { articulationData, availableSounds };

@@ -15,11 +15,200 @@ export default function ArticulationCard({ word, sentence, image, targetSound, p
   const renderHighlightedText = (text: string, target: string) => {
     if (!text || !target) return text;
     
-    // We do a simple case-insensitive replace, wrapping the target sound in a span
-    // Note: In a real app, phoneme highlighting can be tricky. This is a basic string match.
+    // For sentences, keep the original behavior of highlighting all instances
+    if (position === 'sentence') {
+      const regex = new RegExp(`(${target})`, 'gi');
+      const parts = text.split(regex);
+      return (
+        <>
+          {parts.map((part, i) => 
+            part.toLowerCase() === target.toLowerCase() ? (
+              <span key={i} className="text-orange-500">{part}</span>
+            ) : (
+              <span key={i}>{part}</span>
+            )
+          )}
+        </>
+      );
+    }
+
+    // For initial, medial, and final words, highlight only the target sound at the correct position
+    const lowerWord = text.toLowerCase();
+    const lowerTarget = target.toLowerCase();
+    
+    let start = -1;
+    let length = 0;
+
+    if (position === 'initial') {
+      const targetLen = ['ch', 'sh', 'th'].includes(lowerTarget) ? 2 : 1;
+      if (lowerTarget === 'k' && lowerWord.startsWith('c')) {
+        start = 0;
+        length = 1;
+      } else if (lowerWord.startsWith(lowerTarget)) {
+        start = 0;
+        length = lowerTarget.length;
+      } else {
+        start = 0;
+        length = targetLen;
+      }
+    } else if (position === 'final') {
+      if (lowerTarget === 'b') {
+        start = lowerWord.lastIndexOf('b');
+        length = start !== -1 ? 1 : 0;
+      } else if (lowerTarget === 'ch') {
+        start = lowerWord.lastIndexOf('ch');
+        length = start !== -1 ? 2 : 0;
+      } else if (lowerTarget === 'd') {
+        start = lowerWord.lastIndexOf('d');
+        length = start !== -1 ? 1 : 0;
+      } else if (lowerTarget === 'f') {
+        if (lowerWord.includes('ff')) {
+          start = lowerWord.lastIndexOf('ff');
+          length = 2;
+        } else {
+          start = lowerWord.lastIndexOf('f');
+          length = start !== -1 ? 1 : 0;
+        }
+      } else if (lowerTarget === 'g') {
+        if (lowerWord.includes('gg')) {
+          start = lowerWord.lastIndexOf('gg');
+          length = 2;
+        } else {
+          start = lowerWord.lastIndexOf('g');
+          length = start !== -1 ? 1 : 0;
+        }
+      } else if (lowerTarget === 'j') {
+        if (lowerWord.includes('dge')) {
+          start = lowerWord.lastIndexOf('dge');
+          length = 3;
+        } else {
+          start = lowerWord.lastIndexOf('g');
+          length = start !== -1 ? 1 : 0;
+        }
+      } else if (lowerTarget === 'k') {
+        if (lowerWord.includes('ck')) {
+          start = lowerWord.lastIndexOf('ck');
+          length = 2;
+        } else {
+          start = lowerWord.lastIndexOf('k');
+          length = start !== -1 ? 1 : 0;
+        }
+      } else if (lowerTarget === 'l') {
+        if (lowerWord.includes('ll')) {
+          start = lowerWord.lastIndexOf('ll');
+          length = 2;
+        } else {
+          start = lowerWord.lastIndexOf('l');
+          length = start !== -1 ? 1 : 0;
+        }
+      } else if (lowerTarget === 'm') {
+        if (lowerWord.includes('mb')) {
+          start = lowerWord.lastIndexOf('mb');
+          length = 2;
+        } else {
+          start = lowerWord.lastIndexOf('m');
+          length = start !== -1 ? 1 : 0;
+        }
+      } else if (lowerTarget === 'n') {
+        start = lowerWord.lastIndexOf('n');
+        length = start !== -1 ? 1 : 0;
+      } else if (lowerTarget === 'p') {
+        start = lowerWord.lastIndexOf('p');
+        length = start !== -1 ? 1 : 0;
+      } else if (lowerTarget === 'r') {
+        start = lowerWord.lastIndexOf('r');
+        length = start !== -1 ? 1 : 0;
+      } else if (lowerTarget === 's') {
+        if (lowerWord.endsWith('ss')) {
+          start = lowerWord.lastIndexOf('ss');
+          length = 2;
+        } else if (lowerWord.endsWith('ce')) {
+          start = lowerWord.lastIndexOf('c');
+          length = 1;
+        } else if (lowerWord.endsWith('se')) {
+          start = lowerWord.lastIndexOf('s');
+          length = 1;
+        } else {
+          start = lowerWord.lastIndexOf('s');
+          length = start !== -1 ? 1 : 0;
+        }
+      } else if (lowerTarget === 'sh') {
+        start = lowerWord.lastIndexOf('sh');
+        length = start !== -1 ? 2 : 0;
+      } else if (lowerTarget === 't') {
+        start = lowerWord.lastIndexOf('t');
+        length = start !== -1 ? 1 : 0;
+      } else if (lowerTarget === 'th') {
+        start = lowerWord.lastIndexOf('th');
+        length = start !== -1 ? 2 : 0;
+      } else if (lowerTarget === 'v') {
+        start = lowerWord.lastIndexOf('v');
+        length = start !== -1 ? 1 : 0;
+      } else if (lowerTarget === 'y') {
+        start = lowerWord.lastIndexOf('y');
+        length = start !== -1 ? 1 : 0;
+      } else if (lowerTarget === 'z') {
+        if (lowerWord.endsWith('zz')) {
+          start = lowerWord.lastIndexOf('zz');
+          length = 2;
+        } else {
+          start = lowerWord.lastIndexOf('z');
+          length = start !== -1 ? 1 : 0;
+        }
+      }
+    } else if (position === 'medial') {
+      let candidates: string[] = [];
+      if (lowerTarget === 'b') candidates = ['bb', 'b'];
+      else if (lowerTarget === 'ch') candidates = ['ch'];
+      else if (lowerTarget === 'd') candidates = ['dd', 'd'];
+      else if (lowerTarget === 'f') candidates = ['ff', 'ph', 'f'];
+      else if (lowerTarget === 'g') candidates = ['gg', 'gh', 'g'];
+      else if (lowerTarget === 'h') candidates = ['h'];
+      else if (lowerTarget === 'j') candidates = ['dg', 'j', 'g', 'd'];
+      else if (lowerTarget === 'k') candidates = ['ck', 'k', 'c'];
+      else if (lowerTarget === 'l') candidates = ['ll', 'l'];
+      else if (lowerTarget === 'm') candidates = ['mm', 'm'];
+      else if (lowerTarget === 'n') candidates = ['nn', 'n'];
+      else if (lowerTarget === 'p') candidates = ['pp', 'p'];
+      else if (lowerTarget === 'r') candidates = ['rr', 'r'];
+      else if (lowerTarget === 's') candidates = ['ss', 'c', 's'];
+      else if (lowerTarget === 'sh') candidates = ['sh', 'ss'];
+      else if (lowerTarget === 't') candidates = ['tt', 't'];
+      else if (lowerTarget === 'th') candidates = ['th'];
+      else if (lowerTarget === 'v') candidates = ['v'];
+      else if (lowerTarget === 'y') {
+        if (lowerWord === 'onion') candidates = ['i'];
+        else if (lowerWord === 'costume') candidates = ['u'];
+        else candidates = ['y'];
+      }
+      else if (lowerTarget === 'z') candidates = ['zz', 'z', 's'];
+
+      for (const cand of candidates) {
+        const idx = lowerWord.indexOf(cand, 1);
+        if (idx !== -1) {
+          start = idx;
+          length = cand.length;
+          break;
+        }
+      }
+    }
+
+    if (start !== -1 && length > 0) {
+      const before = text.slice(0, start);
+      const highlighted = text.slice(start, start + length);
+      const after = text.slice(start + length);
+      return (
+        <>
+          <span>{before}</span>
+          <span className="text-orange-500">{highlighted}</span>
+          <span>{after}</span>
+        </>
+      );
+    }
+
+    // Fallback: simple replace if no match
     const regex = new RegExp(`(${target})`, 'gi');
     const parts = text.split(regex);
-    
     return (
       <>
         {parts.map((part, i) => 
@@ -56,6 +245,9 @@ export default function ArticulationCard({ word, sentence, image, targetSound, p
           src={image} 
           alt={word || sentence || 'Articulation'} 
           className="w-full h-full object-contain"
+          onError={(e) => {
+            e.currentTarget.src = '/images/Matka.png';
+          }}
         />
       </motion.div>
 

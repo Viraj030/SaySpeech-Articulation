@@ -10,9 +10,10 @@ interface Props {
   onNext: () => void;
   onReadyForNext: (ready: boolean) => void;
   isAnimatingNext: boolean;
+  isMuted?: boolean;
 }
 
-export default function MatkaActivityScreen({ item, onNext, onReadyForNext, isAnimatingNext }: Props) {
+export default function MatkaActivityScreen({ item, onNext, onReadyForNext, isAnimatingNext, isMuted = false }: Props) {
   const [tapCount, setTapCount] = useState(0);
   const [isLocked, setIsLocked] = useState(false);
   const { playBreak } = useMatkaSounds();
@@ -29,7 +30,9 @@ export default function MatkaActivityScreen({ item, onNext, onReadyForNext, isAn
 
     if (tapCount === 0) {
       setIsLocked(true);
-      playBreak();
+      if (!isMuted) {
+        playBreak();
+      }
       setTapCount(2);
 
       // Show broken matka for 400ms, then reveal object

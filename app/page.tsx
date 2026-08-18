@@ -26,6 +26,24 @@ export default function BreakAndSayActivity() {
   const [isReadyForNext, setIsReadyForNext] = useState(false);
   const [isAnimatingNext, setIsAnimatingNext] = useState(false);
 
+  const [isMuted, setIsMuted] = useState(false);
+
+  // Load sound setting from localStorage
+  React.useEffect(() => {
+    const saved = localStorage.getItem('isMuted');
+    if (saved === 'true') {
+      setIsMuted(true);
+    }
+  }, []);
+
+  const handleToggleMute = () => {
+    setIsMuted(prev => {
+      const nextMute = !prev;
+      localStorage.setItem('isMuted', String(nextMute));
+      return nextMute;
+    });
+  };
+
   // Derive current items
   const currentItems = selectedSound && selectedPosition
     ? articulationData[selectedSound]?.[selectedPosition] || []
@@ -155,6 +173,8 @@ export default function BreakAndSayActivity() {
       hideFooter={false}
       hideHome={currentScreen === 'welcome'}
       isWide={true}
+      isMuted={isMuted}
+      onToggleMute={currentScreen === 'practice' ? handleToggleMute : undefined}
     >
       <AnimatePresence mode="wait">
         {currentScreen === 'welcome' && (
@@ -205,10 +225,12 @@ export default function BreakAndSayActivity() {
             className="w-full h-full"
           >
             <MatkaActivityScreen
+              key={currentItem.id}
               item={currentItem}
               onNext={handleNextItem}
               onReadyForNext={setIsReadyForNext}
               isAnimatingNext={isAnimatingNext}
+              isMuted={isMuted}
             />
           </motion.div>
         )}
