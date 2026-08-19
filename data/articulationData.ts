@@ -5687,7 +5687,156 @@ export const articulationData: ArticulationDataMap = {
         "sentence": "We visit our grandparents every Sunday"
       }
     ]
+  },
+  "CV": {
+    "initial": [
+      {
+        "id": "cv-1",
+        "image": "/images/PPT Images/Word-Category/CV-Sound/Do.png",
+        "targetSound": "CV",
+        "position": "initial",
+        "word": "Do"
+      },
+      {
+        "id": "cv-2",
+        "image": "/images/PPT Images/Word-Category/CV-Sound/Go.png",
+        "targetSound": "CV",
+        "position": "initial",
+        "word": "Go"
+      },
+      {
+        "id": "cv-3",
+        "image": "/images/PPT Images/Word-Category/CV-Sound/Key.png",
+        "targetSound": "CV",
+        "position": "initial",
+        "word": "Key"
+      },
+      {
+        "id": "cv-4",
+        "image": "/images/PPT Images/Word-Category/CV-Sound/No.png",
+        "targetSound": "CV",
+        "position": "initial",
+        "word": "No"
+      },
+      {
+        "id": "cv-5",
+        "image": "/images/PPT Images/Word-Category/CV-Sound/Tea.png",
+        "targetSound": "CV",
+        "position": "initial",
+        "word": "Tea"
+      }
+    ]
+  },
+  "CVCV": {
+    "initial": [
+      {
+        "id": "cvcv-1",
+        "image": "/images/PPT Images/Word-Category/CVCV-Sound/baby.png",
+        "targetSound": "CVCV",
+        "position": "initial",
+        "word": "baby"
+      },
+      {
+        "id": "cvcv-2",
+        "image": "/images/PPT Images/Word-Category/CVCV-Sound/coco.png",
+        "targetSound": "CVCV",
+        "position": "initial",
+        "word": "coco"
+      },
+      {
+        "id": "cvcv-3",
+        "image": "/images/PPT Images/Word-Category/CVCV-Sound/mama.png",
+        "targetSound": "CVCV",
+        "position": "initial",
+        "word": "mama"
+      },
+      {
+        "id": "cvcv-4",
+        "image": "/images/PPT Images/Word-Category/CVCV-Sound/papa.png",
+        "targetSound": "CVCV",
+        "position": "initial",
+        "word": "papa"
+      }
+    ]
+  },
+  "Multisyllabic": {
+    "initial": [
+      {
+        "id": "multisyllabic-1",
+        "image": "/images/PPT Images/Word-Category/Multisyllabic-Sound/Banana.png",
+        "targetSound": "Multisyllabic",
+        "position": "initial",
+        "word": "Banana"
+      },
+      {
+        "id": "multisyllabic-2",
+        "image": "/images/PPT Images/Word-Category/Multisyllabic-Sound/computer.png",
+        "targetSound": "Multisyllabic",
+        "position": "initial",
+        "word": "computer"
+      },
+      {
+        "id": "multisyllabic-3",
+        "image": "/images/PPT Images/Word-Category/Multisyllabic-Sound/elephant.png",
+        "targetSound": "Multisyllabic",
+        "position": "initial",
+        "word": "elephant"
+      },
+      {
+        "id": "multisyllabic-4",
+        "image": "/images/PPT Images/Word-Category/Multisyllabic-Sound/hospital.png",
+        "targetSound": "Multisyllabic",
+        "position": "initial",
+        "word": "hospital"
+      },
+      {
+        "id": "multisyllabic-5",
+        "image": "/images/PPT Images/Word-Category/Multisyllabic-Sound/umbrella.png",
+        "targetSound": "Multisyllabic",
+        "position": "initial",
+        "word": "umbrella"
+      }
+    ]
+  },
+  "VC": {
+    "initial": [
+      {
+        "id": "vc-1",
+        "image": "/images/PPT Images/Word-Category/VC-Sound/at.png",
+        "targetSound": "VC",
+        "position": "initial",
+        "word": "at"
+      },
+      {
+        "id": "vc-2",
+        "image": "/images/PPT Images/Word-Category/VC-Sound/in.png",
+        "targetSound": "VC",
+        "position": "initial",
+        "word": "in"
+      },
+      {
+        "id": "vc-3",
+        "image": "/images/PPT Images/Word-Category/VC-Sound/it.png",
+        "targetSound": "VC",
+        "position": "initial",
+        "word": "it"
+      },
+      {
+        "id": "vc-4",
+        "image": "/images/PPT Images/Word-Category/VC-Sound/on.png",
+        "targetSound": "VC",
+        "position": "initial",
+        "word": "on"
+      },
+      {
+        "id": "vc-5",
+        "image": "/images/PPT Images/Word-Category/VC-Sound/up.png",
+        "targetSound": "VC",
+        "position": "initial",
+        "word": "up"
+      }
+    ]
   }
 };
 
-export const availableSounds = ["p","b","m","ch","d","f","g","h","j","k","l","n","r","s","sh","t","th","v","y","z"];
+export const availableSounds = ["p","b","m","ch","d","f","g","h","j","k","l","n","r","s","sh","t","th","v","y","z","CV","CVCV","Multisyllabic","VC"];

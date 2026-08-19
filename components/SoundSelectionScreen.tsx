@@ -24,26 +24,40 @@ export default function SoundSelectionScreen({ onSelectSound }: Props) {
           <p className="text-base sm:text-lg font-bold text-slate-500">Which sound would you like to practise?</p>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
-          {availableSounds.map((sound, i) => (
-            <motion.button
-              key={sound}
-              onClick={() => onSelectSound(sound)}
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: i * 0.03, type: 'spring', stiffness: 200, damping: 15 }}
-              whileHover={{ scale: 1.05, y: -4 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white rounded-xl shadow-sm border-2 border-slate-100 hover:border-orange-300 hover:shadow-md hover:shadow-orange-100 p-3 sm:p-4 flex flex-col items-center justify-center gap-2 transition-all group"
-            >
-              <div className="w-12 h-12 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center text-xl font-black uppercase group-hover:bg-orange-500 group-hover:text-white transition-colors shadow-inner">
-                {sound}
-              </div>
-              <span className="font-bold text-sm sm:text-base text-slate-600 uppercase tracking-wide group-hover:text-orange-600">
-                {sound} Sound
-              </span>
-            </motion.button>
-          ))}
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3">
+          {availableSounds.map((sound, i) => {
+            const isMultisyllabic = sound === 'Multisyllabic';
+            const isCVCV = sound === 'CVCV';
+            
+            let colSpanClass = 'col-span-1';
+            if (isMultisyllabic) colSpanClass = 'col-span-2 sm:col-span-2 md:col-span-2';
+            else if (isCVCV) colSpanClass = 'col-span-1 sm:col-span-1 md:col-span-1'; // User said "increase width for CVCV", we can make it col-span-2 on mobile
+            
+            if (isCVCV) colSpanClass = 'col-span-2 sm:col-span-2 md:col-span-1';
+
+            const circleText = isMultisyllabic ? 'MULTI' : sound;
+            const textSizeClass = circleText.length > 2 ? 'text-sm sm:text-base' : 'text-xl';
+
+            return (
+              <motion.button
+                key={sound}
+                onClick={() => onSelectSound(sound)}
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: i * 0.03, type: 'spring', stiffness: 200, damping: 15 }}
+                whileHover={{ scale: 1.05, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                className={`bg-white rounded-xl shadow-sm border-2 border-slate-100 hover:border-orange-300 hover:shadow-md hover:shadow-orange-100 p-3 sm:p-4 flex flex-col items-center justify-center gap-2 transition-all group ${colSpanClass}`}
+              >
+                <div className={`h-12 min-w-[3rem] px-3 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center font-black uppercase group-hover:bg-orange-500 group-hover:text-white transition-colors shadow-inner ${textSizeClass}`}>
+                  {circleText}
+                </div>
+                <span className="font-bold text-sm sm:text-base text-slate-600 uppercase tracking-wide group-hover:text-orange-600 text-center">
+                  {sound} Sound
+                </span>
+              </motion.button>
+            );
+          })}
         </div>
         </div>
       </div>

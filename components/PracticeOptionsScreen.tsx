@@ -11,6 +11,8 @@ interface Props {
 }
 
 export default function PracticeOptionsScreen({ sound, position, onPracticeAgain, onChoosePosition, onChooseSound }: Props) {
+  const isSpecialSound = ['CV', 'CVCV', 'Multisyllabic', 'VC'].includes(sound);
+
   return (
     <div className="flex-1 w-full h-full relative overflow-hidden flex flex-col items-center justify-center p-6 bg-slate-50">
 
@@ -29,7 +31,11 @@ export default function PracticeOptionsScreen({ sound, position, onPracticeAgain
             Great Practising!
           </h2>
           <p className="text-base md:text-lg font-bold text-slate-500">
-            You practised the <span className="text-emerald-700 uppercase">{sound} Sound</span> in the <span className="text-emerald-700 uppercase">{position}</span> position.
+            You practised the <span className="text-emerald-700 uppercase">{sound} Sound</span>
+            {!isSpecialSound && (
+              <> in the <span className="text-emerald-700 uppercase">{position}</span> position.</>
+            )}
+            {isSpecialSound && '.'}
           </p>
         </div>
 
@@ -44,16 +50,18 @@ export default function PracticeOptionsScreen({ sound, position, onPracticeAgain
             Practice Again
           </motion.button>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <motion.button
-              onClick={onChoosePosition}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-2 w-full px-3 py-3 bg-slate-100 text-slate-700 font-black rounded-2xl text-xs sm:text-sm shadow-[0_4px_0_rgb(203,213,225)] hover:shadow-[0_2px_0_rgb(203,213,225)] hover:translate-y-[2px] active:shadow-none active:translate-y-[4px] transition-all uppercase tracking-wide border-2 border-slate-200"
-            >
-              <Crosshair className="w-5 h-5 stroke-[3]" />
-              Choose Sound Position
-            </motion.button>
+          <div className={`grid ${isSpecialSound ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'} gap-3`}>
+            {!isSpecialSound && (
+              <motion.button
+                onClick={onChoosePosition}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center justify-center gap-2 w-full px-3 py-3 bg-slate-100 text-slate-700 font-black rounded-2xl text-xs sm:text-sm shadow-[0_4px_0_rgb(203,213,225)] hover:shadow-[0_2px_0_rgb(203,213,225)] hover:translate-y-[2px] active:shadow-none active:translate-y-[4px] transition-all uppercase tracking-wide border-2 border-slate-200"
+              >
+                <Crosshair className="w-5 h-5 stroke-[3]" />
+                Choose Sound Position
+              </motion.button>
+            )}
 
             <motion.button
               onClick={onChooseSound}

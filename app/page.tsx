@@ -60,7 +60,14 @@ export default function BreakAndSayActivity() {
 
   const handleSelectSound = (sound: string) => {
     setSelectedSound(sound);
-    setCurrentScreen('positionSelection');
+    if (['CV', 'CVCV', 'Multisyllabic', 'VC'].includes(sound)) {
+      setSelectedPosition('initial');
+      setCurrentItemIndex(0);
+      setIsReadyForNext(false);
+      setCurrentScreen('practice');
+    } else {
+      setCurrentScreen('positionSelection');
+    }
   };
 
   const handleSelectPosition = (position: Position) => {
@@ -103,8 +110,14 @@ export default function BreakAndSayActivity() {
   };
 
   const handleChoosePosition = () => {
-    setSelectedPosition(null);
-    setCurrentScreen('positionSelection');
+    if (['CV', 'CVCV', 'Multisyllabic', 'VC'].includes(selectedSound || '')) {
+      setSelectedSound(null);
+      setSelectedPosition(null);
+      setCurrentScreen('soundSelection');
+    } else {
+      setSelectedPosition(null);
+      setCurrentScreen('positionSelection');
+    }
   };
 
   const handleChooseSound = () => {
@@ -126,7 +139,13 @@ export default function BreakAndSayActivity() {
         setCurrentItemIndex(prev => prev - 1);
         setIsReadyForNext(false); // require tap again
       } else {
-        setCurrentScreen('positionSelection');
+        if (['CV', 'CVCV', 'Multisyllabic', 'VC'].includes(selectedSound || '')) {
+          setCurrentScreen('soundSelection');
+          setSelectedSound(null);
+          setSelectedPosition(null);
+        } else {
+          setCurrentScreen('positionSelection');
+        }
       }
     } else if (currentScreen === 'practiceOptions') {
       setCurrentScreen('practice');
