@@ -16,7 +16,7 @@ export function useMatkaSounds() {
     });
 
     breakSoundRef.current = new Howl({
-      src: ['/sounds/matka-break.mp3'],
+      src: ['/sounds/matka-breaking-2.mp3'],
       preload: true,
       onend: () => { isPlayingRef.current = false; }
     });
