@@ -5725,7 +5725,10 @@ export const articulationData: ArticulationDataMap = {
         "position": "initial",
         "word": "Tea"
       }
-    ]
+    ],
+    "medial": [],
+    "final": [],
+    "sentence": []
   },
   "CVCV": {
     "initial": [
@@ -5757,7 +5760,10 @@ export const articulationData: ArticulationDataMap = {
         "position": "initial",
         "word": "papa"
       }
-    ]
+    ],
+    "medial": [],
+    "final": [],
+    "sentence": []
   },
   "Multisyllabic": {
     "initial": [
@@ -5796,7 +5802,10 @@ export const articulationData: ArticulationDataMap = {
         "position": "initial",
         "word": "umbrella"
       }
-    ]
+    ],
+    "medial": [],
+    "final": [],
+    "sentence": []
   },
   "VC": {
     "initial": [
@@ -5835,7 +5844,10 @@ export const articulationData: ArticulationDataMap = {
         "position": "initial",
         "word": "up"
       }
-    ]
+    ],
+    "medial": [],
+    "final": [],
+    "sentence": []
   }
 };
 
