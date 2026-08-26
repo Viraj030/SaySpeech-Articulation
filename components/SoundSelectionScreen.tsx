@@ -29,10 +29,7 @@ export default function SoundSelectionScreen({ onSelectSound }: Props) {
               const isMultisyllabic = sound === 'Multisyllabic';
               const isCVCV = sound === 'CVCV';
 
-              let colSpanClass = 'col-span-1';
-              if (isCVCV) colSpanClass = 'col-span-1 sm:col-span-1 md:col-span-1'; // User said "increase width for CVCV", we can make it col-span-2 on mobile
-
-              if (isCVCV) colSpanClass = 'col-span-2 sm:col-span-2 md:col-span-1';
+              const colSpanClass = 'col-span-1';
 
               const circleText = isMultisyllabic ? 'MULTI' : sound;
               const textSizeClass = circleText.length > 2 ? 'text-sm sm:text-base' : 'text-xl';

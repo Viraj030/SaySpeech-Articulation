@@ -15,19 +15,45 @@ export default function ArticulationCard({ word, sentence, image, targetSound, p
   const renderHighlightedText = (text: string, target: string) => {
     if (!text || !target) return text;
     
-    // For sentences, keep the original behavior of highlighting all instances
+    // For sentences, keep the original behavior of highlighting all instances, 
+    // but enhance it to catch alternative spellings for specific sounds
     if (position === 'sentence') {
-      const regex = new RegExp(`(${target})`, 'gi');
+      let pattern = target;
+      
+      // Handle alternative spellings for specific sounds in sentences
+      switch (target.toLowerCase()) {
+        case 'j': pattern = 'j|dge|g(?=e|i|y)'; break;
+        case 'f': pattern = 'f|ff|ph'; break;
+        case 'k': pattern = 'k|ck|c(?=[aou|l|r])|c\\b'; break;
+        case 's': pattern = 's|ss|c(?=e|i|y)'; break;
+        case 'z': pattern = 'z|zz|s(?=\\b|e\\b)'; break;
+        case 'ch': pattern = 'ch|tch'; break;
+        case 'sh': pattern = 'sh|ti(?=on)|ci(?=al)'; break;
+        case 'l': pattern = 'l|ll'; break;
+        case 'r': pattern = 'r|rr|wr'; break;
+        case 'm': pattern = 'm|mm|mb'; break;
+        case 'n': pattern = 'n|nn|kn'; break;
+        case 'p': pattern = 'p|pp'; break;
+        case 'b': pattern = 'b|bb'; break;
+        case 't': pattern = 't|tt'; break;
+        case 'd': pattern = 'd|dd'; break;
+        case 'g': pattern = 'g|gg'; break;
+      }
+
+      const regex = new RegExp(`(${pattern})`, 'gi');
       const parts = text.split(regex);
       return (
         <>
-          {parts.map((part, i) => 
-            part.toLowerCase() === target.toLowerCase() ? (
+          {parts.map((part, i) => {
+            // We need to check if this part is a match. 
+            // Since we split by the regex, the matched parts will be at odd indices (1, 3, 5...).
+            const isMatch = i % 2 !== 0;
+            return isMatch ? (
               <span key={i} className="text-orange-500">{part}</span>
             ) : (
               <span key={i}>{part}</span>
             )
-          )}
+          })}
         </>
       );
     }

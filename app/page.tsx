@@ -156,7 +156,11 @@ export default function BreakAndSayActivity() {
   // Determine header title
   let activityName = 'Say Speech';
   if (currentScreen === 'practice' && selectedSound && selectedPosition) {
-    activityName = `${selectedSound} Sound • ${selectedPosition}`;
+    if (['CV', 'CVCV', 'Multisyllabic', 'VC'].includes(selectedSound)) {
+      activityName = `${selectedSound} Sound`;
+    } else {
+      activityName = `${selectedSound} Sound • ${selectedPosition}`;
+    }
   }
 
   // Determine Arrow States
