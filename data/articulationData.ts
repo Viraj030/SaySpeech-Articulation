@@ -807,6 +807,13 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
+        "id": "d-sentence-8",
+        "image": "/images/PPT Images/D-Sound/d-sentences/The dog is barking.png",
+        "targetSound": "d",
+        "position": "sentence",
+        "sentence": "The dog is barking"
+      },
+      {
         "id": "d-sentence-9",
         "image": "/images/PPT Images/D-Sound/d-sentences/The duck is swimming.png",
         "targetSound": "d",
@@ -868,13 +875,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "d",
         "position": "sentence",
         "sentence": "We walked along the road"
-      },
-      {
-        "id": "d-sentence-8",
-        "image": "/images/PPT Images/D-Sound/d-sentences/The dog is barking.png",
-        "targetSound": "d",
-        "position": "sentence",
-        "sentence": "The dog is barking"
       }
     ]
   },
@@ -1606,6 +1606,13 @@ export const articulationData: ArticulationDataMap = {
     "final": [],
     "sentence": [
       {
+        "id": "h-sentence-5",
+        "image": "/images/PPT Images/H-Sound/h-sentences/The boy is wearing a blue hat.png",
+        "targetSound": "h",
+        "position": "sentence",
+        "sentence": "The boy is wearing a blue hat"
+      },
+      {
         "id": "h-sentence-10",
         "image": "/images/PPT Images/H-Sound/h-sentences/We live in a small house near the park.png",
         "targetSound": "h",
@@ -1667,13 +1674,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "h",
         "position": "sentence",
         "sentence": "Please behave nicely when guests visit"
-      },
-      {
-        "id": "h-sentence-5",
-        "image": "/images/PPT Images/H-Sound/h-sentences/The boy is wearing a blue hat.png",
-        "targetSound": "h",
-        "position": "sentence",
-        "sentence": "The boy is wearing a blue hat"
       }
     ]
   },
@@ -2476,6 +2476,13 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
+        "id": "l-sentence-7",
+        "image": "/images/PPT Images/L-Sound/l-sentences/The lion is sleeping under the tree.png",
+        "targetSound": "l",
+        "position": "sentence",
+        "sentence": "The lion is sleeping under the tree"
+      },
+      {
         "id": "l-sentence-1",
         "image": "/images/PPT Images/L-Sound/l-sentences/A green leaf fell from the tree.png",
         "targetSound": "l",
@@ -2537,13 +2544,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "l",
         "position": "sentence",
         "sentence": "The lizard is sitting on the wall"
-      },
-      {
-        "id": "l-sentence-7",
-        "image": "/images/PPT Images/L-Sound/l-sentences/The lion is sleeping under the tree.png",
-        "targetSound": "l",
-        "position": "sentence",
-        "sentence": "The lion is sleeping under the tree"
       }
     ]
   },
@@ -3056,6 +3056,13 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
+        "id": "n-sentence-7",
+        "image": "/images/PPT Images/N-Sound/n-sentences/The nurse checked my temperature.png",
+        "targetSound": "n",
+        "position": "sentence",
+        "sentence": "The nurse checked my temperature"
+      },
+      {
         "id": "n-sentence-4",
         "image": "/images/PPT Images/N-Sound/n-sentences/The bird built a nest in the tree.png",
         "targetSound": "n",
@@ -3117,13 +3124,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "n",
         "position": "sentence",
         "sentence": "The balloon floated up into the sky"
-      },
-      {
-        "id": "n-sentence-7",
-        "image": "/images/PPT Images/N-Sound/n-sentences/The nurse checked my temperature.png",
-        "targetSound": "n",
-        "position": "sentence",
-        "sentence": "The nurse checked my temperature"
       }
     ]
   },
@@ -3636,6 +3636,13 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
+        "id": "r-sentence-5",
+        "image": "/images/PPT Images/R-Sound/r-sentences/Riya eats rice with dal every afternoon.png",
+        "targetSound": "r",
+        "position": "sentence",
+        "sentence": "Riya eats rice with dal every afternoon"
+      },
+      {
         "id": "r-sentence-9",
         "image": "/images/PPT Images/R-Sound/r-sentences/The rabbit is hiding under the bush.png",
         "targetSound": "r",
@@ -3697,13 +3704,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "r",
         "position": "sentence",
         "sentence": "We saw a bright star in the night sky"
-      },
-      {
-        "id": "r-sentence-5",
-        "image": "/images/PPT Images/R-Sound/r-sentences/Riya eats rice with dal every afternoon.png",
-        "targetSound": "r",
-        "position": "sentence",
-        "sentence": "Riya eats rice with dal every afternoon"
       }
     ]
   },
@@ -3926,6 +3926,13 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
+        "id": "s-sentence-2",
+        "image": "/images/PPT Images/S-Sound/S-sentences/Sam sees snakes.png",
+        "targetSound": "s",
+        "position": "sentence",
+        "sentence": "Sam sees snakes"
+      },
+      {
         "id": "s-sentence-10",
         "image": "/images/PPT Images/S-Sound/S-sentences/The sun is shining.png",
         "targetSound": "s",
@@ -3987,13 +3994,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "s",
         "position": "sentence",
         "sentence": "Ice is slippery"
-      },
-      {
-        "id": "s-sentence-2",
-        "image": "/images/PPT Images/S-Sound/S-sentences/Sam sees snakes.png",
-        "targetSound": "s",
-        "position": "sentence",
-        "sentence": "Sam sees snakes"
       }
     ]
   },
@@ -4216,46 +4216,11 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
-        "id": "sh-sentence-1",
-        "image": "/images/PPT Images/SH-Sound/sh-sentences/I made a wish.png",
-        "targetSound": "sh",
-        "position": "sentence",
-        "sentence": "I made a wish"
-      },
-      {
         "id": "sh-sentence-2",
         "image": "/images/PPT Images/SH-Sound/sh-sentences/She shared the shells.png",
         "targetSound": "sh",
         "position": "sentence",
         "sentence": "She shared the shells"
-      },
-      {
-        "id": "sh-sentence-3",
-        "image": "/images/PPT Images/SH-Sound/sh-sentences/The brush is soft.png",
-        "targetSound": "sh",
-        "position": "sentence",
-        "sentence": "The brush is soft"
-      },
-      {
-        "id": "sh-sentence-4",
-        "image": "/images/PPT Images/SH-Sound/sh-sentences/The fish is swimming.png",
-        "targetSound": "sh",
-        "position": "sentence",
-        "sentence": "The fish is swimming"
-      },
-      {
-        "id": "sh-sentence-5",
-        "image": "/images/PPT Images/SH-Sound/sh-sentences/The flashlight is shiny.png",
-        "targetSound": "sh",
-        "position": "sentence",
-        "sentence": "The flashlight is shiny"
-      },
-      {
-        "id": "sh-sentence-6",
-        "image": "/images/PPT Images/SH-Sound/sh-sentences/The milkshake is sweet.png",
-        "targetSound": "sh",
-        "position": "sentence",
-        "sentence": "The milkshake is sweet"
       },
       {
         "id": "sh-sentence-7",
@@ -4284,6 +4249,41 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "sh",
         "position": "sentence",
         "sentence": "Wash your hands"
+      },
+      {
+        "id": "sh-sentence-1",
+        "image": "/images/PPT Images/SH-Sound/sh-sentences/I made a wish.png",
+        "targetSound": "sh",
+        "position": "sentence",
+        "sentence": "I made a wish"
+      },
+      {
+        "id": "sh-sentence-3",
+        "image": "/images/PPT Images/SH-Sound/sh-sentences/The brush is soft.png",
+        "targetSound": "sh",
+        "position": "sentence",
+        "sentence": "The brush is soft"
+      },
+      {
+        "id": "sh-sentence-4",
+        "image": "/images/PPT Images/SH-Sound/sh-sentences/The fish is swimming.png",
+        "targetSound": "sh",
+        "position": "sentence",
+        "sentence": "The fish is swimming"
+      },
+      {
+        "id": "sh-sentence-6",
+        "image": "/images/PPT Images/SH-Sound/sh-sentences/The milkshake is sweet.png",
+        "targetSound": "sh",
+        "position": "sentence",
+        "sentence": "The milkshake is sweet"
+      },
+      {
+        "id": "sh-sentence-5",
+        "image": "/images/PPT Images/SH-Sound/sh-sentences/The flashlight is shiny.png",
+        "targetSound": "sh",
+        "position": "sentence",
+        "sentence": "The flashlight is shiny"
       }
     ]
   },
@@ -4506,6 +4506,13 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
+        "id": "t-sentence-9",
+        "image": "/images/PPT Images/T Sound/t-sentences/Tommy took ten toys.png",
+        "targetSound": "t",
+        "position": "sentence",
+        "sentence": "Tommy took ten toys"
+      },
+      {
         "id": "t-sentence-6",
         "image": "/images/PPT Images/T Sound/t-sentences/The tiger is tall.png",
         "targetSound": "t",
@@ -4567,13 +4574,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "t",
         "position": "sentence",
         "sentence": "I sat on the seat"
-      },
-      {
-        "id": "t-sentence-9",
-        "image": "/images/PPT Images/T Sound/t-sentences/Tommy took ten toys.png",
-        "targetSound": "t",
-        "position": "sentence",
-        "sentence": "Tommy took ten toys"
       }
     ]
   },
@@ -4796,6 +4796,13 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
+        "id": "th-sentence-7",
+        "image": "/images/PPT Images/TH-Sound/Th-sentences/Thank you for helping me with my homework.png",
+        "targetSound": "th",
+        "position": "sentence",
+        "sentence": "Thank you for helping me with my homework"
+      },
+      {
         "id": "th-sentence-4",
         "image": "/images/PPT Images/TH-Sound/Th-sentences/My brother and I went to the theatre on Sunday.png",
         "targetSound": "th",
@@ -4857,13 +4864,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "th",
         "position": "sentence",
         "sentence": "I carried both my school bag and my lunch box"
-      },
-      {
-        "id": "th-sentence-7",
-        "image": "/images/PPT Images/TH-Sound/Th-sentences/Thank you for helping me with my homework.png",
-        "targetSound": "th",
-        "position": "sentence",
-        "sentence": "Thank you for helping me with my homework"
       }
     ]
   },
@@ -5086,6 +5086,13 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
+        "id": "v-sentence-7",
+        "image": "/images/PPT Images/V-Sound/V-sentences/The van stopped outside the school.png",
+        "targetSound": "v",
+        "position": "sentence",
+        "sentence": "The van stopped outside the school"
+      },
+      {
         "id": "v-sentence-9",
         "image": "/images/PPT Images/V-Sound/V-sentences/We bought fresh vegetables from the market.png",
         "targetSound": "v",
@@ -5147,13 +5154,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "v",
         "position": "sentence",
         "sentence": "I live with my family in India"
-      },
-      {
-        "id": "v-sentence-7",
-        "image": "/images/PPT Images/V-Sound/V-sentences/The van stopped outside the school.png",
-        "targetSound": "v",
-        "position": "sentence",
-        "sentence": "The van stopped outside the school"
       }
     ]
   },
@@ -5376,6 +5376,13 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
+        "id": "y-sentence-10",
+        "image": "/images/PPT Images/Y-Sound/Y-sentences/Yes, I finished my homework before dinner.png",
+        "targetSound": "y",
+        "position": "sentence",
+        "sentence": "Yes, I finished my homework before dinner"
+      },
+      {
         "id": "y-sentence-7",
         "image": "/images/PPT Images/Y-Sound/Y-sentences/The yellow bus arrived at the school gate.png",
         "targetSound": "y",
@@ -5437,13 +5444,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "y",
         "position": "sentence",
         "sentence": "We celebrated my sister's birthday with cake and balloons"
-      },
-      {
-        "id": "y-sentence-10",
-        "image": "/images/PPT Images/Y-Sound/Y-sentences/Yes, I finished my homework before dinner.png",
-        "targetSound": "y",
-        "position": "sentence",
-        "sentence": "Yes, I finished my homework before dinner"
       }
     ]
   },
@@ -5617,6 +5617,13 @@ export const articulationData: ArticulationDataMap = {
     ],
     "sentence": [
       {
+        "id": "z-sentence-9",
+        "image": "/images/PPT Images/Z-Sound/Z-sentences/We saw a zebra at the zoo.png",
+        "targetSound": "z",
+        "position": "sentence",
+        "sentence": "We saw a zebra at the zoo"
+      },
+      {
         "id": "z-sentence-4",
         "image": "/images/PPT Images/Z-Sound/Z-sentences/Please zip your school bag.png",
         "targetSound": "z",
@@ -5678,13 +5685,6 @@ export const articulationData: ArticulationDataMap = {
         "targetSound": "z",
         "position": "sentence",
         "sentence": "I packed bananas, eggs, and mangoes for our picnic"
-      },
-      {
-        "id": "z-sentence-9",
-        "image": "/images/PPT Images/Z-Sound/Z-sentences/We saw a zebra at the zoo.png",
-        "targetSound": "z",
-        "position": "sentence",
-        "sentence": "We saw a zebra at the zoo"
       }
     ]
   },
